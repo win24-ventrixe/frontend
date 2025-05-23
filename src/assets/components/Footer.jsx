@@ -1,8 +1,15 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer>Footer</footer>
+    <footer>
+      <p className="footer-copyright-text">Copyright © 2025 Peterdraw</p>
+      <NavLink>Privacy Policy</NavLink>
+      <NavLink>Term and conditions</NavLink>
+      <NavLink>Contact</NavLink>
+
+      </footer>
   )
 }
 

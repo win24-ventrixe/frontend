@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const BookingEvent = () => {
+    const navigate = useNavigate()
     const { id } = useParams() 
     const [event, setEvent] = useState({})
     const [formData, setFormData] = useState({
@@ -11,7 +12,9 @@ const BookingEvent = () => {
         email: '', 
         streetName: '', 
         postalCode: '', 
-        city: ''})
+        city: '',
+        ticketQuantity: 1
+    })
 
     useEffect(() => {
         getEvent()
@@ -29,36 +32,33 @@ const BookingEvent = () => {
         }
     }
 
-    const postBooking = async () => {
-        try { 
-            const res = await fetch (`https://ecpn-bookingservice-e9g5a8adcxh8dmcv.swedencentral-01.azurewebsites.net/api/Bookings`, {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            }) 
-
-            if (!res.ok) {
-                console.error("Booking failed")
-            } else {
-                console.log("Booking successful")
-            }
-        } catch (err) {
-            console.error("Error submitting booking", err)
-        }
-    }
-
         const handleChange = (e) => {
             const { name, value } = e.target
             setFormData(prev => ({ ...prev, [name]: value }))
         }
 
         const handleSubmit = async (e) => {
-            e.PreventDefault()
+            e.preventDefault()
 
-            await postBooking()
+            try { 
+                const res = await fetch (`https://ecpn-bookingservice-gcdtcjhqb0brdtbz.swedencentral-01.azurewebsites.net/api/Bookings`, {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                }) 
+
+                if (!res.ok) {
+                    console.error("Booking failed")
+                } else {
+                    console.log("Booking successful")
+                    navigate('/')
+                }
+        } catch (err) {
+            console.error("Error submitting booking", err)
         }
+    }
 
 
     return (

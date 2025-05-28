@@ -7,7 +7,21 @@ import Nav from '../components/Nav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+const formatDateToReadable = (dateString) => {
+  const date = new Date(dateString);
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(date);
 
+  const formattedTime = date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    hour12: true,
+  });
+ 
+  return `${formattedDate} - ${formattedTime}`;
+};
 
 const EventDetails = () => {
     const {id} = useParams() 
@@ -34,10 +48,14 @@ const EventDetails = () => {
       <main className="event-details"> 
       <img className="event-details-img" src={event.image} />
         <h2 className="event-details-title">{event.title}</h2>
-        <div className="event-details-date">
-          <img src={calendardot} />
-          {event.eventDate}
-        </div>
+
+        {event.eventDate && ( 
+          <div className="event-details-date">
+            <img src={calendardot} />
+            {formatDateToReadable(event.eventDate)}
+          </div>
+        )}
+
         <div className="event-details-location">
           <img src={locationdot} />
           {event.location}

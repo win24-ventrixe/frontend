@@ -97,7 +97,7 @@ const BookingEvent = () => {
                             <label className="form-label">City: </label>
                             <input type="text" className="form-input" name="city" value={formData.city} onChange={handleChange} required />
                         </div>
-                        <button className="btn-book-event" type="submit">Book now</button>
+                        <button className="btn-primary" type="submit">Book now</button>
                     </form>
                 </div>
             </main>

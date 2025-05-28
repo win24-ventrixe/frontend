@@ -64,8 +64,9 @@ const EventDetails = () => {
           <h4>About Event</h4>
           <p>{event.description}</p>
           </div>
-
-        <Link to={`/events/booking/${id}`}>Book event</Link>
+          <button className="btn-primary">
+            <Link to={`/events/booking/${id}`}>Book event</Link> 
+          </button>
         </main>
         <Footer />
     </div>

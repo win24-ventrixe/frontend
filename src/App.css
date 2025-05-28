@@ -168,6 +168,10 @@ html, body {
       height: 400px;
       width: 600px;
     }
+
+    .event-details-top {
+      display: flex;
+    }
 }
 
   @media(width >= 1400px) {
@@ -420,5 +424,34 @@ img {
   a {
     color: white;
   }
+}
 
+.terms-and-conditions {
+  background-color: white;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+li {
+  color: var(--text-muted-color);
+}
+
+.booking-and-terms {
+  display: flex;
+  gap: 20rem;
+}
+
+.terms-on-booking-page {
+  width: 500px;
+}
+
+.successful-booking { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
 }

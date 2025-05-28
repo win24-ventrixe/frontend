@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import TermsAndConditions from '../components/TermsAndConditions'
 
 
 const BookingEvent = () => {
@@ -57,7 +58,7 @@ const BookingEvent = () => {
                     console.error("Booking failed")
                 } else {
                     console.log("Booking successful")
-                    navigate('/')
+                    navigate('/events/booking/bookingsuccess/:id')
                 }
         } catch (err) {
             console.error("Error submitting booking", err)
@@ -71,7 +72,7 @@ const BookingEvent = () => {
             <Header />
             <main className="book-event"> 
                 <h4 className="book-event-title">Book Event - {event.title}</h4>
-                <div>
+                <div className="booking-and-terms">
                     <form onSubmit={handleSubmit} noValidate>
                         <div className="form-group">
                             <label className="form-label">First Name: </label>
@@ -99,6 +100,7 @@ const BookingEvent = () => {
                         </div>
                         <button className="btn-primary" type="submit">Book now</button>
                     </form>
+                    <div className="terms-on-booking-page"><TermsAndConditions /></div>
                 </div>
             </main>
             <Footer />

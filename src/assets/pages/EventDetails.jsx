@@ -6,6 +6,7 @@ import calendardot from '/src/assets/images/calendar-dot.svg'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import TermsAndConditions from '../components/TermsAndConditions'
 
 const formatDateToReadable = (dateString) => {
   const date = new Date(dateString);
@@ -44,9 +45,10 @@ const EventDetails = () => {
   return (
     <div className="portal-wrapper">
       <Nav />
-      <Header />
-      <main className="event-details"> 
-      <img className="event-details-img" src={event.image} />
+      <Header /> 
+  
+      <main className="event-details">     
+          <img className="event-details-img" src={event.image} />
         <h2 className="event-details-title">{event.title}</h2>
 
         {event.eventDate && ( 
@@ -67,6 +69,7 @@ const EventDetails = () => {
           <button className="btn-primary">
             <Link to={`/events/booking/${id}`}>Book event</Link> 
           </button>
+          <TermsAndConditions />
         </main>
         <Footer />
     </div>

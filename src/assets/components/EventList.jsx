@@ -22,6 +22,8 @@ const EventList = () => {
   return (
     <section id="events">
         {
+            
+
             events.map(event => (
             <EventCard key={event.id} event={event} /> //Alt. event={event} ?
             ))

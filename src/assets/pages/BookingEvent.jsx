@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import Nav from '../components/Nav'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
 
 const BookingEvent = () => {
     const navigate = useNavigate()
@@ -62,37 +66,42 @@ const BookingEvent = () => {
 
 
     return (
-        <div>
-            <h1>Book Event - {event.title}</h1>
-            <div>
-                <form onSubmit={handleSubmit} noValidate>
-                    <div>
-                        <label>First Name</label>
-                        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>Email</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>Street Name</label>
-                        <input type="text" name="streetName" value={formData.streetName} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>Postal Code</label>
-                        <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>City</label>
-                        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
-                    </div>
-                    <button type="submit">Book now</button>
-                </form>
-            </div>
+        <div className="portal-wrapper">
+            <Nav />
+            <Header />
+            <main className="book-event"> 
+                <h4 className="book-event-title">Book Event - {event.title}</h4>
+                <div>
+                    <form onSubmit={handleSubmit} noValidate>
+                        <div className="form-group">
+                            <label className="form-label">First Name: </label>
+                            <input type="text" className="form-input" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Last Name: </label>
+                            <input type="text" className="form-input" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Email: </label>
+                            <input type="email" className="form-input" name="email" value={formData.email} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Street Name: </label>
+                            <input type="text" className="form-input" name="streetName" value={formData.streetName} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Postal Code: </label>
+                            <input type="text" className="form-input" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">City: </label>
+                            <input type="text" className="form-input" name="city" value={formData.city} onChange={handleChange} required />
+                        </div>
+                        <button className="btn-book-event" type="submit">Book now</button>
+                    </form>
+                </div>
+            </main>
+            <Footer />
         </div>
     )
 }

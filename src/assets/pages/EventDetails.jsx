@@ -28,21 +28,24 @@ const EventDetails = () => {
     }, [])
 
   return (
-    <div className="event-details portal-wrapper">
+    <div className="portal-wrapper">
       <Nav />
       <Header />
-      <main> 
-      <img src={event.image} />
-        <h1>{event.title}</h1>
-        <div>
-          <img src={locationdot} />
+      <main className="event-details"> 
+      <img className="event-details-img" src={event.image} />
+        <h2 className="event-details-title">{event.title}</h2>
+        <div className="event-details-date">
+          <img src={calendardot} />
           {event.eventDate}
         </div>
-        <div>
-          <img src={calendardot} />
+        <div className="event-details-location">
+          <img src={locationdot} />
           {event.location}
         </div>
-        <div>{event.description}</div>
+        <div className="event-details-description">
+          <h4>About Event</h4>
+          <p>{event.description}</p>
+          </div>
 
         <Link to={`/events/booking/${id}`}>Book event</Link>
         </main>

@@ -125,12 +125,12 @@ html, body {
                         "main"
                         "footer";
 
-@media(width >= 660px) {
-      #events {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-}
+  @media(width >= 660px) {
+        #events {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
 
   @media(width >= 768px) {
     grid-template-columns: 80px 1fr;
@@ -172,6 +172,14 @@ html, body {
     .event-details-top {
       display: flex;
     }
+
+    .terms-on-booking-page {
+      display: flex;
+  }
+
+  .booking-and-terms {
+    gap: 5rem;
+  }
 }
 
   @media(width >= 1400px) {
@@ -201,7 +209,11 @@ html, body {
       font-weight: 400;
       font-size: 1rem;
   }
-}
+
+      .booking-and-terms {
+      gap: 15rem;
+    }
+  }
 }
 
 nav {
@@ -374,8 +386,6 @@ img {
 .event-details-description {
   border-top: 1px solid var(--border-color);
   padding-top: 1rem;
-
-
 }
   h4 {
     color: var(--secondary-100);
@@ -441,11 +451,11 @@ li {
 
 .booking-and-terms {
   display: flex;
-  gap: 20rem;
+  gap: 15rem;
 }
 
 .terms-on-booking-page {
-  width: 500px;
+  display: none;
 }
 
 .successful-booking { 
